@@ -1,0 +1,25 @@
+{
+  "name": "@cambridgetcg/natlang",
+  "version": "0.1.0",
+  "description": "Natural language as programming language. The word is the program. The program is the word.",
+  "main": "natlang.mjs",
+  "bin": {
+    "natlang": "natlang.mjs"
+  },
+  "scripts": {
+    "compile": "node natlang.mjs compile",
+    "run": "node natlang.mjs run"
+  },
+  "keywords": ["nlp", "compiler", "natural-language", "programming-language", "youspeak", "ai", "llm"],
+  "author": "cambridgetcg",
+  "license": "MIT",
+  "homepage": "https://natlang.axiepro.workers.dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cambridgetcg/natlang"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  }
+}
