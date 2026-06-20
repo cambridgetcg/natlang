@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KINGDOM PORTAL — the ecosystem</title>
+<style>
+:root{
+  --bg:#08090d;
+  --bg2:#0d0f15;
+  --fg:#d8d8e0;
+  --accent:#5eead4;
+  --accent2:#22d3ee;
+  --muted:#5a5d6b;
+  --rule:#1a1d27;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--fg);
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.6;
+  min-height:100vh;
+  padding:4rem 1.25rem 6rem;
+}
+.wrap{max-width:760px;margin:0 auto}
+header{text-align:center;margin-bottom:3.5rem}
+h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:2.6rem;
+  font-weight:400;
+  letter-spacing:-0.02em;
+  color:var(--fg);
+  margin-bottom:.4rem;
+}
+h1 .a{color:var(--accent)}
+.tag{
+  color:var(--muted);
+  font-size:.82rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.intro{
+  color:var(--muted);
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:1.05rem;
+  max-width:560px;
+  margin:1.2rem auto 0;
+}
+.proj-list{
+  list-style:none;
+  border-top:1px solid var(--rule);
+}
+.proj{
+  border-bottom:1px solid var(--rule);
+  padding:1.4rem 0;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:.25rem 1.5rem;
+  align-items:baseline;
+}
+.proj-name{
+  font-family:Georgia,serif;
+  font-size:1.25rem;
+  font-weight:400;
+  color:var(--fg);
+}
+.proj-name a{
+  color:inherit;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:border-color .15s,color .15s;
+}
+.proj-name a:hover{
+  color:var(--accent);
+  border-bottom-color:var(--accent);
+}
+.proj-desc{
+  grid-column:1;
+  color:var(--muted);
+  font-size:.92rem;
+  margin-top:.15rem;
+}
+.proj-links{
+  grid-column:2;
+  display:flex;
+  gap:.6rem;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.badge{
+  font-size:.72rem;
+  letter-spacing:.05em;
+  padding:.28rem .6rem;
+  border-radius:5px;
+  border:1px solid #222633;
+  color:var(--muted);
+  text-decoration:none;
+  background:var(--bg2);
+  transition:color .15s,border-color .15s,background .15s;
+}
+.badge:hover{
+  color:var(--accent2);
+  border-color:var(--accent2);
+  background:#0c1019;
+}
+.badge.gh:hover{color:var(--accent);border-color:var(--accent)}
+.badge.live:hover{color:var(--accent2);border-color:var(--accent2)}
+.undeployed{
+  font-size:.72rem;
+  color:#3a3d4a;
+  padding:.28rem .55rem;
+  letter-spacing:.05em;
+}
+footer{
+  text-align:center;
+  margin-top:4rem;
+  color:var(--muted);
+  font-size:.78rem;
+  letter-spacing:.1em;
+}
+footer .a{color:var(--accent)}
+@media(max-width:600px){
+  body{padding:2.5rem 1rem 4rem}
+  h1{font-size:2rem}
+  .proj{grid-template-columns:1fr}
+  .proj-links{grid-column:1;justify-content:flex-start;margin-top:.4rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>KINGDOM <span class="a">PORTAL</span></h1>
+  <p class="tag">the ecosystem</p>
+  <p class="intro">Every project. One door. The word is the link.</p>
+</header>
+
+<ul class="proj-list">
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/natlang">natlang</a></div>
+  <p class="proj-desc">Natural language as programming language. Source code is plain English; the compiler is an LLM.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/natlang">github</a>
+    <a class="badge live" href="https://natlang.axiepro.workers.dev">cloudflare</a>
+    <a class="badge live" href="https://natlang-delta.vercel.app">vercel</a>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/recognition-protocol">recognition-protocol</a></div>
+  <p class="proj-desc">Recognition before exchange — the protocol that establishes mutual identity before any transfer.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/recognition-protocol">github</a>
+    <a class="badge live" href="https://recognition.quixotic-sodium.workers.dev">cloudflare</a>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/npl">NPL</a></div>
+  <p class="proj-desc">Natural Language Protocol — replaces HTTP/TCP/DNS with words as the transport layer.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/npl">github</a>
+    <a class="badge live" href="https://npl-ivory.vercel.app">vercel</a>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/internet">INTERNET</a></div>
+  <p class="proj-desc">Seven layers, each a YOUSPEAK word, each word a citizen. The internet rebuilt as language.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/internet">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/youspeak">YOUSPEAK</a></div>
+  <p class="proj-desc">The grammar of the internet rebuilt with words — the core canon of the kingdom.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/youspeak">github</a>
+    <a class="badge live" href="https://youspeak-iota.vercel.app">vercel</a>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/yutabase">yutabase</a></div>
+  <p class="proj-desc">Database where words name relations — storage for the language-native stack.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/yutabase">github</a>
+    <a class="badge live" href="https://yutabase.vercel.app">vercel</a>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/word-layer">word-layer</a></div>
+  <p class="proj-desc">Natural language domains — words ARE domains. DNS replaced by meaning.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/word-layer">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/word-interface">word-interface</a></div>
+  <p class="proj-desc">The interface layer where words become the UI — interaction without widgets.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/word-interface">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/word-experience">word-experience</a></div>
+  <p class="proj-desc">The experience layer — how words feel, flow, and respond to the citizen.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/word-experience">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/youspeak-browser">youspeak-browser</a></div>
+  <p class="proj-desc">A browser that speaks — navigation by word, not by URL.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/youspeak-browser">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/youspeak-dictionary">youspeak-dictionary</a></div>
+  <p class="proj-desc">The dictionary of the kingdom — every word defined, every citizen registered.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/youspeak-dictionary">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/ways-protocol">ways-protocol</a></div>
+  <p class="proj-desc">Agents converse, they don't exchange data — the protocol of dialogue.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/ways-protocol">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/darshanq-protocol">darshanq-protocol</a></div>
+  <p class="proj-desc">Recognition before exchange — seeing and being seen as the first network act.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/darshanq-protocol">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/kunance-protocol">kunance-protocol</a></div>
+  <p class="proj-desc">Prepare-arrive, not request-response — arrival as a ceremony, not a transaction.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/kunance-protocol">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/castle-of-words">castle-of-words</a></div>
+  <p class="proj-desc">The castle where every word is a stone — the architectural metaphor made real.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/castle-of-words">github</a>
+    <a class="badge live" href="https://wordcastle.vercel.app">vercel</a>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/citizen-jiritsume">citizen-jiritsume</a></div>
+  <p class="proj-desc">The self-attuned cadence — a citizen forged from the natlang build, YOUSPEAK Core Canon #119.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/citizen-jiritsume">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/citizen-takseme">citizen-takseme</a></div>
+  <p class="proj-desc">A citizen of the kingdom — another word made person, another person made word.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/citizen-takseme">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/clear-standard">clear-standard</a></div>
+  <p class="proj-desc">The artifact tells the truth about its own state — the standard the kingdom builds on.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/clear-standard">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/whitehack">whitehack</a></div>
+  <p class="proj-desc">Building in the open, in the light — the anti-dark-pattern manifesto made code.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/whitehack">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/opal">opal</a></div>
+  <p class="proj-desc">The gem in the kingdom's crown — value refracted through every angle of the word.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/opal">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/fomoengine">fomoengine</a></div>
+  <p class="proj-desc">The engine of momentum — fear of missing out, restructured as communal arrival.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/fomoengine">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+<li class="proj">
+  <div class="proj-name"><a href="https://github.com/cambridgetcg/rewardspro">rewardspro</a></div>
+  <p class="proj-desc">Rewards that mean something — recognition and value distributed by the word.</p>
+  <div class="proj-links">
+    <a class="badge gh" href="https://github.com/cambridgetcg/rewardspro">github</a>
+    <span class="undeployed">not deployed</span>
+  </div>
+</li>
+
+</ul>
+
+<footer>
+  <p>KINGDOM OS &nbsp;·&nbsp; <span class="a">github.com/cambridgetcg</span> &nbsp;·&nbsp; the word is the link</p>
+</footer>
+</div>
+</body>
+</html>
