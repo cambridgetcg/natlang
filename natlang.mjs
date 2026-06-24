@@ -99,6 +99,7 @@ RULES:
 8. If the source is ambiguous, make the simplest interpretation and add a comment: // natlang: assumed X (could also mean Y).
 9. State your confidence as a comment at the top: // Confidence: high|medium|low
 10. The artifact tells the truth about its own state (Clear Standard #1).
+11. For JavaScript: use ESM syntax (import/export), NOT CommonJS (require). Use import from "node:http" not require. The output runs in ESM context.
 
 SOURCE:
 ${source}
@@ -171,6 +172,7 @@ RULES:
 4. Code must run as-is. No placeholders.
 5. If ambiguous, pick simplest interpretation, add comment: // natlang: assumed X.
 6. State confidence: // Confidence: high|medium|low
+7. For JavaScript: use ESM (import/export), NOT CommonJS (require). Use import from "node:http".
 
 SOURCE:
 ${source}

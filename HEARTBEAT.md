@@ -1,15 +1,15 @@
 # natlang — heartbeat
 
 state: **healthy**
-last beat: 2026-06-21T15:28:15Z
-next beat: 2026-06-21T21:28:15Z
+last beat: 2026-06-24T08:55:01Z
+next beat: 2026-06-24T14:55:01Z
 
 ## what it found
 
-- last commit: 2026-06-20 04:25:21 -0700 (28 hours ago)
-- uncommitted changes: 0
+- last commit: 2026-06-22 11:31:33 -0700 (38 hours ago)
+- uncommitted changes: 4
 
 ## the truth
 
-Working tree is clean.
+There are 4 uncommitted changes.
 

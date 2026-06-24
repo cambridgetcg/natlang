@@ -1,38 +1,61 @@
-# natlang — natural language as programming language
+# natlang 🫀
 
-_A language where words are programs and programs are words. No syntax to learn — just say what you mean. The compiler reads English._
+**Natural language as programming language. The word is the program. The program is the word.**
 
-## What it is
+Source code is plain English. The compiler is an LLM. The output is executable code.
 
-natlang is a programming language whose source code is natural language. Not pseudocode that looks like English. Not a DSL with English-like keywords. Actual English sentences that compile to executable behavior.
+```sh
+# install (no registration, no paywall)
+git clone https://github.com/cambridgetcg/natlang
+node natlang.mjs compile examples/hello.nl --target js
+node examples/build/hello.js
+```
+
+## The first program
 
 ```
-Create a web server on port 3000.
-When someone visits "/hello", respond with "world".
-Start the server.
+Create an HTTP server on port 8080.
+When someone visits "/", respond with { "message": "hello world", "natlang": true }.
+When someone visits "/health", respond with { "status": "ok" }.
+When someone visits any other path, respond with 404 and { "error": "not found" }.
+Start the server and log "Server running on http://localhost:8080".
 ```
 
-That compiles. That runs. That is the program.
+That English compiled to ESM JavaScript using `import { createServer } from "node:http"`. It runs. All routes verified.
 
-## Why
+## Examples
 
-Every programming language is a translation layer between what you mean and what the machine does. The translation has overhead: syntax, types, build systems, frameworks, package managers, deployment configs. Each layer is a skill that takes months to learn and years to master. The total stack for a modern web app: 15+ technologies, each with its own vocabulary, its own error messages, its own community.
+| file | what it does | target | verified |
+|------|-------------|--------|----------|
+| `examples/hello.nl` | web server with 3 routes | JS (ESM) | ✓ all routes work |
+| `examples/todo.nl` | CRUD todo API (create, list, update, delete) | JS (ESM) | ✓ full CRUD verified |
+| `examples/fibonacci.nl` | first 20 Fibonacci numbers | JS | ✓ output correct |
+| `examples/landing.nl` | dark-themed landing page | HTML | ✓ renders |
 
-natlang collapses the stack. The source IS the specification. The specification IS the program. The gap between "what I want" and "what I tell the machine" closes to zero.
+## Usage
 
-## How
+```sh
+natlang compile <file.nl> [--target js|py|rust|html] [--run]
+natlang run <file.nl>                          # compile + execute
+natlang new <name>                              # create a new .nl project
+```
 
-natlang is compiled by an LLM. The natural language source is parsed by a language model that emits target code (JavaScript, Python, Rust, HTML, CSS, SQL, YAML — whatever the task needs). The compiler is not a parser; it is a reader.
+## Targets
 
-This is not a toy. LLMs are now reliable enough to serve as compilation targets for structured natural language. The key insight: natural language IS already structured — it has grammar, semantics, and pragmatics. The structure is just softer than formal grammar, and an LLM can read it.
+- `js` — JavaScript (Node.js, ESM) — default, verified
+- `py` — Python
+- `rust` — Rust
+- `html` — HTML/CSS/JS (single file) — verified
 
-## The design
+## The compiler
 
-1. **Source is plain English** (or any natural language — natlang is language-agnostic)
-2. **The compiler is an LLM** that reads source and emits target code
-3. **Target code is conventional** (JS, Python, Rust, etc.) — readable, inspectable, editable
-4. **The build is deterministic** — same source + same model = same output (with temperature 0)
-5. **The artifact tells the truth about its own state** (Clear Standard #1)
+The compiler is an LLM (Ollama: glm-5.2:cloud by default, or any OpenAI-compatible endpoint). It reads English and emits executable code. The compiler states its confidence (high/medium/low) and labels assumptions honestly.
+
+Set the model:
+```sh
+export NATLANG_MODEL="qwen3:8b"        # any Ollama model
+export NATLANG_BASE_URL="http://127.0.0.1:11434/v1"  # or any OpenAI-compatible endpoint
+```
 
 ## What it replaces
 
@@ -41,7 +64,6 @@ Traditional:                        natlang:
 package.json                        "create an app called hello"
 tsconfig.json                       "use TypeScript"
 src/index.ts                        "when someone visits /, say hello"
-src/routes/hello.ts                 "the route returns { message: 'hello' }"
 vite.config.ts                      "build with vite"
 Dockerfile                          "package in docker"
 docker-compose.yml                  "run on port 3000"
@@ -52,12 +74,38 @@ Nine files, four languages, three config formats → one paragraph of English.
 
 ## The honest limits
 
-natlang is not magic. It is a compiler. The compiler can be wrong. The generated code can have bugs. The natural language can be ambiguous. The Clear Standard applies: the compiler states its confidence, labels its assumptions, and breaks loudly when it can't understand.
+natlang is not magic. It is a compiler. The compiler can be wrong. The generated code can have bugs. The Clear Standard applies: the compiler states its confidence, labels its assumptions, and breaks loudly when it can't understand.
 
-natlang does not replace all programming. It replaces the 80% of programming that is boilerplate, configuration, and glue. For the 20% that is algorithm design, performance optimization, and systems programming — the parts where precision matters more than readability — conventional languages remain the right tool.
+natlang does not replace all programming. It replaces the 80% that is boilerplate, configuration, and glue. For the 20% that is algorithm design, performance optimization, and systems programming — conventional languages remain the right tool.
 
-## Status
+## Learn
 
-Day 0. The idea is clear. The compiler exists (any capable LLM). The first interpreter is next.
+Read [LEARN.md](./LEARN.md) — the why behind natlang, with all 4 examples explained.
 
-_Built on the principle that the artifact tells the truth about its own state. The word is the program. The program is the word._
+## Ecosystem
+
+- [whitehack](https://github.com/cambridgetcg/whitehack) — honesty linter (check your compiled code)
+- [recognition-protocol](https://github.com/cambridgetcg/recognition-protocol) — passwordless auth
+- [NPL](https://github.com/cambridgetcg/npl) — Natural Language Protocol (internet rewritten)
+- [kingdom-api](https://github.com/cambridgetcg/kingdom-api) — free API, no registration
+- [clear-standard](https://github.com/cambridgetcg/clear-standard) — 6 principles for honest systems
+- [YOUSPEAK dictionary](https://youspeak-dictionary.vercel.app) — 153 words from 12 ancient tongues
+
+## The resistance-free path
+
+| channel | URL | needs account? |
+|---------|-----|----------------|
+| GitHub | github.com/cambridgetcg/natlang | no |
+| Cloudflare | natlang.axiepro.workers.dev | no |
+| GitHub Pages | cambridgetcg.github.io/natlang | no |
+| jsDelivr CDN | cdn.jsdelivr.net/gh/cambridgetcg/natlang@main/ | no |
+| GitHub raw | raw.githubusercontent.com/cambridgetcg/natlang/main/ | no |
+| Google Colab | colab-natlang.ipynb (free GPU) | no |
+
+## License
+
+MIT — the word is the program. The program is the word.
+
+---
+
+_Built with love. The artifact tells the truth about its own state. 🫀_
